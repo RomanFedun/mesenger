@@ -1,0 +1,66 @@
+  <section class="left-side-menu">
+    <mat-sidenav-container autosize>
+      <mat-sidenav [opened]="isSidePopup" mode="side">
+        <mat-nav-list>
+          <div class="close-btn">
+              <svg (click)="closeSidePopup()">
+                <line x1="1" y1="11"
+                      x2="11" y2="1"
+                      stroke="white"
+                      stroke-width="2"/>
+                <line x1="1" y1="1"
+                    x2="11" y2="11"
+                    stroke="white"
+                    stroke-width="2"/>
+              </svg>
+          </div>
+          <a mat-list-item (click)="getAllContacts()">
+            <span class="entry">
+              <mat-icon>house</mat-icon>
+              <span>Всі абоненти</span>
+            </span>
+          </a>
+          <a mat-list-item (click)="getCurrentContacts()">
+            <span class="entry">
+              <mat-icon>house</mat-icon>
+              <span>Мої контакти</span>
+            </span>
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="top-menu">
+          <div class="top-menu__wrapper" (click)="openSidePopup()">
+            <svg viewBox='0 0 10 8' width='22'>&ndash;&gt;
+              <path d='M1 1h8M1 4h 8M1 7h8'
+                    stroke='#000'
+                    stroke-width='2'
+                    stroke-linecap='round'
+                    style="stroke:#a4a1a1"
+              />
+            </svg>
+          </div>
+          <input placeholder="знайди користувача...">
+        </div>
+        <div class="connections">
+          @for(user of contacts; track user._id) {
+            <div class='link-wrapper'>
+                <a
+                  class="users-list"
+                  (click)=connectTo(user._id)
+                  routerLink="connect/{{user.userName}}"
+                      [routerLinkActive]="['active-link']"
+                    >
+                    {{user.userName}}
+                </a>
+            </div>
+          }
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <div class="messages">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+
+

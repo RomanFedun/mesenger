@@ -1,0 +1,27 @@
+<div class="container">
+  <section class="messages">
+    <h2>content of messages</h2>
+  </section>
+  <section class="input-section">
+    <button class="btn-send" (click)="inputFile.click()">
+      <img
+        ngSrc="assets/file-grey.png"
+        alt="file"
+        height="65"
+        width="65"
+      >
+    </button>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="send-form">
+      <input type="file" style="display: none" #inputFile formControlName="files">
+      <textarea class="input-message" formControlName="message"></textarea>
+      <button class="btn-send" type="submit" (click)="send()" [disabled]=disabled>
+        <img
+          ngSrc="assets/send-button.png"
+          alt="send"
+          height="65"
+          width="65"
+        >
+      </button>
+    </form>
+  </section>
+</div>

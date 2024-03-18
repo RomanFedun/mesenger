@@ -1,0 +1,10 @@
+<main class="main-content">
+  <header class="header">
+    <a [class]="!(isLogged$ | async) ? 'link' : 'hide'" routerLink="/">дім</a>
+    <img ngSrc="assets/logo.png" alt="header" priority="1" height="30" width="118">
+    <a [class]="(isLogged$ | async) ? 'link' : 'hide'" (click)="logout()" routerLink="">вийти</a>
+  </header>
+
+  <router-outlet></router-outlet>
+</main>
+

@@ -1,0 +1,40 @@
+<div class="register">
+  <div class="register__header">Регістрація</div>
+
+  @if (error) {
+    <div class="error">
+      {{error}}
+    </div>
+  }
+
+  <div class="form-group">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="wrapper">
+        <label class="form-group__label" for="user-name">Ім'я в мережі: </label>
+        <input class="form-group__input" id="user-name" name="userName" formControlName="userName">
+        <span class="wrapper__helper-text">Введіть псевдонім...</span>
+      </div>
+
+      <div class="wrapper">
+        <label class="form-group__label" for="fist-name">Ім'я: </label>
+        <input class="form-group__input" id="fist-name" name="firstName" formControlName="firstName">
+      </div>
+
+      <div class="wrapper">
+        <label class="form-group__label" for="last-name">Прізвище: </label>
+        <input class="form-group__input" id="last-name" name="lastName" formControlName="lastName">
+      </div>
+
+      <div class="wrapper">
+        <label class="form-group__label" for="password">Пароль:</label>
+        <input class="form-group__input" type="password" id="password" name="password" formControlName="password">
+        <span class="wrapper__helper-text">не менше п'яти символів...</span>
+      </div>
+
+      <button class="submit-btn" type="submit" [disabled]="form.invalid">зареєструватись</button>
+    </form>
+    <div class="form-group__form-links">
+      <a routerLink="/login" class="register-link">щоб увійти</a>
+    </div>
+  </div>
+</div>

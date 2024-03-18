@@ -1,0 +1,35 @@
+.content {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #797777;
+
+  &__header {
+    color: #797777;
+  }
+
+  &__redirect {
+    font-size: 18px;
+  }
+
+  .redirect__link {
+    color: blue;
+
+    &:hover {
+      color: #ee3131;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .content__header {
+    font-size: 22px;
+  }
+
+  .content__description {
+    font-size: 14px;
+    padding-left: 30px;
+  }
+}
